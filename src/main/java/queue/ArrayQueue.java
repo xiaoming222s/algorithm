@@ -22,8 +22,18 @@ public class ArrayQueue {
 
     // 入队
     public boolean enqueue(String item) {
-        // 如果tail == n 表示队列已经满了
-        if (tail == n) return false;
+        // tail == n 表示队列末尾没有空间了
+        if (tail == n) {
+            // tail ==n && head==0，表示整个队列都占满了
+            if (head == 0) return false;
+            // 数据搬移
+            for (int i = head; i < tail; ++i) {
+                items[i-head] = items[i];
+            }
+            // 搬移完之后重新更新 head 和 tail
+            tail -= head;
+            head = 0;
+        }
         items[tail] = item;
         ++tail;
         return true;
@@ -39,12 +49,25 @@ public class ArrayQueue {
         return ret;
     }
 
-    @Test
-    public void printAll() {
-        ArrayQueue ArrayQueue = new ArrayQueue(12);
-        for (int i = head; i < tail; ++i) {
-            System.out.print(items[i] + " ");
+    public static void main(String[] args) {
+        ArrayQueue arrayQueue = new ArrayQueue(5);
+        arrayQueue.enqueue("1111");
+        arrayQueue.enqueue("2222");
+        arrayQueue.enqueue("3333");
+        arrayQueue.enqueue("4444");
+        arrayQueue.enqueue("5555");
+        arrayQueue.dequeue();
+        arrayQueue.dequeue();
+        arrayQueue.dequeue();
+        arrayQueue.dequeue();
+        arrayQueue.dequeue();
+        arrayQueue.enqueue("6666");
+        arrayQueue.enqueue("7777");
+        arrayQueue.enqueue("8888");
+        arrayQueue.enqueue("9999");
+        for (int i = arrayQueue.head; i < arrayQueue.tail; ++i) {
+            System.out.print(arrayQueue.items[i] + " ");
         }
-        System.out.println();
     }
+
 }
