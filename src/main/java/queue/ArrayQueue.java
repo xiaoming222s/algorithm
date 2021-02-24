@@ -3,9 +3,10 @@ package queue;
 import org.junit.Test;
 
 /**
- * Created by wangzheng on 2018/10/9.
+ *
+ *当 tail 移动到最右边，即使数组中还有空闲空间，也无法继续往队列中添加数据了。
  */
-// 用数组实现的队列
+// 用数组实现的队列  顺序队列
 public class ArrayQueue {
     // 数组：items，数组大小：n
     private String[] items;
@@ -22,18 +23,8 @@ public class ArrayQueue {
 
     // 入队
     public boolean enqueue(String item) {
-        // tail == n 表示队列末尾没有空间了
-        if (tail == n) {
-            // tail ==n && head==0，表示整个队列都占满了
-            if (head == 0) return false;
-            // 数据搬移
-            for (int i = head; i < tail; ++i) {
-                items[i-head] = items[i];
-            }
-            // 搬移完之后重新更新 head 和 tail
-            tail -= head;
-            head = 0;
-        }
+        // 如果tail == n 表示队列已经满了
+        if (tail == n) return false;
         items[tail] = item;
         ++tail;
         return true;

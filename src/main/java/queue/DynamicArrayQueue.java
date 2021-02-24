@@ -1,7 +1,7 @@
 package queue;
 
 /**
- * Created by wangzheng on 2018/10/9.
+ * 动态调整数据大小
  */
 public class DynamicArrayQueue {
   // 数组：items，数组大小：n
@@ -47,10 +47,25 @@ public class DynamicArrayQueue {
     return ret;
   }
 
-  public void printAll() {
-    for (int i = head; i < tail; ++i) {
-      System.out.print(items[i] + " ");
+  public static void main(String[] args) {
+    DynamicArrayQueue arrayQueue = new DynamicArrayQueue(5);
+    arrayQueue.enqueue("1111");
+    arrayQueue.enqueue("2222");
+    arrayQueue.enqueue("3333");
+    arrayQueue.enqueue("4444");
+    arrayQueue.enqueue("5555");
+    arrayQueue.dequeue();
+    arrayQueue.dequeue();
+    arrayQueue.dequeue();
+    arrayQueue.dequeue();
+    arrayQueue.dequeue();
+    arrayQueue.enqueue("6666");
+    arrayQueue.enqueue("7777");
+    arrayQueue.enqueue("8888");
+    arrayQueue.enqueue("9999");
+
+    for (int i = arrayQueue.head; i < arrayQueue.tail; ++i) {
+      System.out.print(arrayQueue.items[i] + " ");
     }
-    System.out.println();
   }
 }

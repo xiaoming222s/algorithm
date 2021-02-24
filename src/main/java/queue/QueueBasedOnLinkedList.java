@@ -1,9 +1,8 @@
 package queue;
 
 /**
- * 基于链表实现的队列
+ * 基于链表实现的队列  链式队列
  *
- * Author: Zheng
  */
 public class QueueBasedOnLinkedList {
 
@@ -59,12 +58,12 @@ public class QueueBasedOnLinkedList {
     QueueBasedOnLinkedList.enqueue("1111");
     QueueBasedOnLinkedList.enqueue("2222");
     QueueBasedOnLinkedList.enqueue("3333");
-    QueueBasedOnLinkedList.enqueue("4444");
-    QueueBasedOnLinkedList.enqueue("5555");
-    QueueBasedOnLinkedList.enqueue("6666");
-    QueueBasedOnLinkedList.enqueue("7777");
-    QueueBasedOnLinkedList.enqueue("8888");
-    QueueBasedOnLinkedList.enqueue("9999");
+//    QueueBasedOnLinkedList.enqueue("4444");
+//    QueueBasedOnLinkedList.enqueue("5555");
+//    QueueBasedOnLinkedList.enqueue("6666");
+//    QueueBasedOnLinkedList.enqueue("7777");
+//    QueueBasedOnLinkedList.enqueue("8888");
+//    QueueBasedOnLinkedList.enqueue("9999");
     QueueBasedOnLinkedList.dequeue();
     QueueBasedOnLinkedList.dequeue();
     QueueBasedOnLinkedList.dequeue();
