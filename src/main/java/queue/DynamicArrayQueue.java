@@ -23,8 +23,9 @@ public class DynamicArrayQueue {
     if (tail == n) {
       // tail ==n && head==0，表示整个队列都占满了
       if (head == 0) return false;
-      // 数据搬移
+      //############ 数据搬移 ############
       for (int i = head; i < tail; ++i) {
+        //（将队尾的数据搬到队首）  搬的次数 = tail-head
         items[i-head] = items[i];
       }
       // 搬移完之后重新更新head和tail
