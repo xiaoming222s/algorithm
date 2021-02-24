@@ -25,7 +25,7 @@ public class SampleBrowser {
         browser.goBack();
         browser.checkCurrentPage();
     }
-
+    //定义两个栈
     private String currentPage;
     private LinkedListBasedStack backStack;
     private LinkedListBasedStack forwardStack;
