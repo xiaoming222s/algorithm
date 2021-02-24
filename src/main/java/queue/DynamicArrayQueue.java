@@ -1,7 +1,7 @@
 package queue;
 
 /**
- * 动态调整数据大小
+ * 动态调整数组数据大小
  */
 public class DynamicArrayQueue {
   // 数组：items，数组大小：n
