@@ -55,7 +55,7 @@ public class QuickSort {
         }
       }
     }
-
+    //交换
     int tmp = a[i];
     a[i] = a[r];
     a[r] = tmp;
