@@ -1,7 +1,19 @@
 package sorts;
 
 /**
- * Created by wangzheng on 2018/10/16.
+ *
+ * 归并排序
+ *
+ * 我们申请一个临时数组 tmp，大小与 A[p…r] 相同。
+ * 我们用两个游标 i 和 j，分别指向 A[p…q] 和 A[q+1…r] 的第一个元素。
+ * 比较这两个元素 A[i] 和 A[j]，如果 A[i]<=A[j]，我们就把 A[i] 放入到临时数组 tmp，
+ * 并且 i 后移一位，否则将 A[j] 放入到数组tmp，j 后移一位。
+ * 继续上述比较过程，直到其中一个子数组中的所有数据都放入临时数组中，再把另一个数组
+ * 中的数据依次加入到临时数组的末尾，这个时候，临时数组中存储的就是两个子数组合并之
+ * 后的结果了。最后再把临时数组 tmp 中的数据拷贝到原数组 A[p…r] 中。
+ * 我们
+ *
+ *
  */
 public class MergeSort {
 
@@ -10,7 +22,11 @@ public class MergeSort {
     mergeSortInternally(a, 0, n-1);
   }
 
-  // 递归调用函数
+    /**
+     * 递归调用函数
+     *  p 起始点
+     *  r 终止点
+    */
   private static void mergeSortInternally(int[] a, int p, int r) {
     // 递归终止条件
     if (p >= r) return;
@@ -26,10 +42,13 @@ public class MergeSort {
   }
 
   private static void merge(int[] a, int p, int q, int r) {
+    // 初始化变量i, j, k  ; 我们用两个游标 i 和 j，分别指向 A[p…q] 和 A[q+1…r] 的第一个元素。
     int i = p;
     int j = q+1;
-    int k = 0; // 初始化变量i, j, k
-    int[] tmp = new int[r-p+1]; // 申请一个大小跟a[p...r]一样的临时数组
+    int k = 0;
+    // 申请一个大小跟a[p...r]一样的临时数组
+    int[] tmp = new int[r-p+1];
+    //直到其中一个子数组中的所有数据都放入临时数组中
     while (i<=q && j<=r) {
       if (a[i] <= a[j]) {
         tmp[k++] = a[i++]; // i++等于i:=i+1
@@ -38,7 +57,7 @@ public class MergeSort {
       }
     }
 
-    // 判断哪个子数组中有剩余的数据
+    // 判断哪个子数组中有剩余的数据   i q是前面的数组   j r是后面的数组
     int start = i;
     int end = q;
     if (j <= r) {
@@ -95,8 +114,6 @@ public class MergeSort {
   }
 
     /**
-     * @author wangjunwei87
-     * @since 2019-03-10
      */
     public static class KthSmallest {
 
